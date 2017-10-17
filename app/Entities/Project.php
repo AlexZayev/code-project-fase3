@@ -40,7 +40,7 @@ class Project extends Model //implements Transformable
         return $this->hasMany(ProjectTask::class);
     }
 
-    public function users()
+    public function members()
     {
       return $this->belongsToMany(User::class, 'projects_members');
     }

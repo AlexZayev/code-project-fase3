@@ -28,6 +28,7 @@ Route::put('project/{id}', 'ProjectController@update');
 Route::delete('project/{id}', 'ProjectController@destroy');
 
 Route::get('project/{id}/members', 'ProjectController@members');
+Route::get('project/{id}/isMember/{uid}', 'ProjectController@isMember');
 Route::post('project/{id}/addMember/{uid}', 'ProjectController@addMember');
 Route::post('project/{id}/removeMember/{uid}', 'ProjectController@removeMember');
 

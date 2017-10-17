@@ -67,6 +67,11 @@ class ProjectController extends Controller
 
     public function members($id)
     {
-      return response()->json(['response',$this->repository->with(['users'])->find($id)]);
+      return response()->json(['response',$this->repository->with(['members'])->find($id)]);
+    }
+
+    public function isMember($project_id, $user_id)
+    {
+        return response()->json(['response',$this->service->isMember($project_id, $user_id)]);
     }
 }

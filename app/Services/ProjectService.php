@@ -57,18 +57,22 @@ class ProjectService
 
 	public function addMember($project_id, $user_id)
 	{
-		$this->repository->find($project_id)->users()->attach($user_id);
+		$this->repository->find($project_id)->members()->attach($user_id);
 		return ['message' => 'Member Add with Success!'];
 	}
 
 	public function removeMember($project_id, $user_id)
 	{
-		$this->repository->find($project_id)->users()->detach($user_id);
+		$this->repository->find($project_id)->members()->detach($user_id);
 		return ['message' => 'Member Removed with Success!'];
 	}
 
-	public function isMember()
+	public function isMember($project_id, $user_id)
 	{
-
+        if ($this->repository->find($project_id)->members()->find($user_id)){
+            return ['message' => true];
+        }else{
+            return ['message' => false];
+        }
 	}
 }
